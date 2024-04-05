@@ -21,6 +21,9 @@ class Edge:
         self.to_node = to_node
         self.weight = weight
 
+    def compare(self, other):
+        return self.weight < other.weight
+
     def get_weight(self):
         return self.weight
     def get_from_node(self):
@@ -60,6 +63,10 @@ class Graph:
 
     def get_vertex(self, vertex):
         return self.vertices[vertex]
+
+    def get_edges(self):
+        return self.edges
+
     def print(self):
         for e in self.edges:
             print(str(e.from_node.val) + " -> " + str(e.to_node.val) + " | weight = " + str(e.weight))
