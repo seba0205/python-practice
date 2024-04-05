@@ -12,10 +12,7 @@ class Vertex:
         return self.neighbours
 
     def __str__(self):
-        valstr = str(self.val) + " -> "
-        for n in self.neighbours:
-            valstr = valstr + str(n.to_node.val) + ","
-        return valstr
+        return str(self.val)
 
 
 class Edge:
@@ -66,15 +63,6 @@ class Graph:
     def print(self):
         for e in self.edges:
             print(str(e.from_node.val) + " -> " + str(e.to_node.val) + " | weight = " + str(e.weight))
-        for v in self.vertices:
-            print(str(v))
-
-
-def dijkstra(graph, start, goal):
-    distances = {}
-    distances[start] = 0
-    for v in graph.vertices:
-        distances[v] = 1000
 
 
 graph = Graph(False)
