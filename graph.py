@@ -74,19 +74,20 @@ class Graph:
             print(str(e.from_node.val) + " -> " + str(e.to_node.val) + " | weight = " + str(e.weight))
 
 
-def make_graph_from_matrix(matrix, directed):
-    graph = Graph(directed)
+def make_graph_from_matrix(matrix):
+    # note: when creating a graph from a matrix, it doesn't matter what the directed boolean
+    # if the matrix is symmetrical, it will be undirected
+    # so, we can just set it to true automatically
+    graph = Graph(True)
+    for i in range(len(matrix)):
+        graph.add_vertex(Vertex(i+1))
     for row in range(len(matrix)):
-        graph.add_vertex(Vertex(row + 1))
         for col in range(len(matrix[row])):
             if matrix[row][col] != 0:
-                graph.add_vertex(Vertex(col + 1))
                 graph.add_edge(row + 1, col + 1, matrix[row][col])
     return graph
 
 
-graph_matrix = make_graph_from_matrix([[0, 0, 1, 1], [0, 0, 1, 1], [1, 1, 0, 0], [1, 1, 0, 0]], True)
-graph_matrix.print()
 graph = Graph(False)
 graph.add_vertex(Vertex(1))
 graph.add_vertex(Vertex(2))

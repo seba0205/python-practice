@@ -32,12 +32,12 @@ def dijkstra(graph_map, start, end):
             if alt < distance[v.get_to_node()]:
                 distance[v.get_to_node()] = alt
 
-
-    #prints out every node with the distance from start
+    # prints out every node with the distance from start
     for i in distance:
         print(str(i) + " - Distance from start:" + str(distance[i]))
+    print("---")
 
-    path = {end : distance[end]}
+    path = {end: distance[end]}
     # finding the shortest path back from end goal
     current = end
     # while the current node is not the start node, get the neighbour with the minimum distance
@@ -57,17 +57,3 @@ def dijkstra(graph_map, start, end):
         item = path.popitem()
         print(str(item[0]) + " -  Current distance from start: " + str(item[1]))
 
-
-graph1 = Graph(False)
-graph1.add_vertex(1)
-graph1.add_vertex(2)
-graph1.add_vertex(3)
-graph1.add_vertex(4)
-graph1.add_vertex(5)
-graph1.add_edge(1, 4, 2)
-graph1.add_edge(2, 3, 1)
-graph1.add_edge(3, 1, 4)
-graph1.add_edge(4, 5, 2)
-
-graph1.print()
-dijkstra(graph1, graph1.get_vertex(1), graph1.get_vertex(3))
