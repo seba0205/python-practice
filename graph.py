@@ -26,6 +26,7 @@ class Edge:
 
     def get_weight(self):
         return self.weight
+
     def get_from_node(self):
         return self.from_node
 
@@ -43,7 +44,8 @@ class Graph:
         self.directed = directed
 
     def add_vertex(self, val):
-        self.vertices.append(Vertex(val))
+        if val not in self.vertices:
+            self.vertices.append(val)
 
     def add_edge(self, from_val, to_val, weight):
         from_node = next(n for n in self.vertices if n.val == from_val)
@@ -72,12 +74,25 @@ class Graph:
             print(str(e.from_node.val) + " -> " + str(e.to_node.val) + " | weight = " + str(e.weight))
 
 
+def make_graph_from_matrix(matrix, directed):
+    graph = Graph(directed)
+    for row in range(len(matrix)):
+        graph.add_vertex(Vertex(row + 1))
+        for col in range(len(matrix[row])):
+            if matrix[row][col] != 0:
+                graph.add_vertex(Vertex(col + 1))
+                graph.add_edge(row + 1, col + 1, matrix[row][col])
+    return graph
+
+
+graph_matrix = make_graph_from_matrix([[0, 0, 1, 1], [0, 0, 1, 1], [1, 1, 0, 0], [1, 1, 0, 0]], True)
+graph_matrix.print()
 graph = Graph(False)
-graph.add_vertex(1)
-graph.add_vertex(2)
-graph.add_vertex(3)
-graph.add_vertex(4)
-graph.add_vertex(5)
+graph.add_vertex(Vertex(1))
+graph.add_vertex(Vertex(2))
+graph.add_vertex(Vertex(3))
+graph.add_vertex(Vertex(4))
+graph.add_vertex(Vertex(5))
 graph.add_edge(1, 4, 2)
 graph.add_edge(2, 3, 1)
 graph.add_edge(3, 1, 4)
