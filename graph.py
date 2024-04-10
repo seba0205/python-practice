@@ -1,8 +1,13 @@
+import random
+import numpy as np
+
+
 class Vertex:
+    """A vertex in a graph"""
+
     def __init__(self, val):
         self.val = val
         self.neighbours = []
-        self.visited = False
 
     def add(self, other):
         if other not in self.neighbours:
@@ -16,10 +21,13 @@ class Vertex:
 
 
 class Edge:
-    def __init__(self, from_node, to_node, weight=0):
+    """An edge between two vertices."""
+
+    def __init__(self, from_node, to_node, weight=0, flow=False):
         self.from_node = from_node
         self.to_node = to_node
         self.weight = weight
+        self.capacity = weight if flow else 0
 
     def compare(self, other):
         return self.weight < other.weight
@@ -38,10 +46,14 @@ class Edge:
 
 
 class Graph:
-    def __init__(self, directed):
+    """A graph of vertices and edges"""
+
+    # TODO: add methods for creating a flow network
+    def __init__(self, directed, flow=False):
         self.vertices = []
         self.edges = []
         self.directed = directed
+        self.flow = flow
 
     def add_vertex(self, val):
         if val not in self.vertices:
@@ -75,17 +87,28 @@ class Graph:
 
 
 def make_graph_from_matrix(matrix):
-    # note: when creating a graph from a matrix, it doesn't matter what the directed boolean
-    # if the matrix is symmetrical, it will be undirected
-    # so, we can just set it to true automatically
+    """Given a matrix, creates a graph object"""
     graph = Graph(True)
     for i in range(len(matrix)):
-        graph.add_vertex(Vertex(i+1))
+        graph.add_vertex(Vertex(i + 1))
     for row in range(len(matrix)):
         for col in range(len(matrix[row])):
             if matrix[row][col] != 0:
                 graph.add_edge(row + 1, col + 1, matrix[row][col])
     return graph
+
+
+def make_random_graph(vertex_num, directed=False):
+    """Generates a random graph with a given number of vertices"""
+    matrix = np.zeros((vertex_num, vertex_num))
+    for i in range(vertex_num):
+        for j in range(vertex_num):
+            if directed:
+                matrix[i][j] = random.randint(0, 9)
+                matrix[j][i] = matrix[i][j]
+            else:
+                matrix[i][j] = random.randint(0, 9)
+    return make_graph_from_matrix(matrix)
 
 
 graph = Graph(False)

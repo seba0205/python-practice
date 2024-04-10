@@ -4,6 +4,7 @@ from graph import Vertex, Edge, Graph, make_graph_from_matrix
 # This set class was taken from python-disjoint-set by imressed on GitHub
 # implements a disjoint set data structure with functions find and union
 class Set:
+    """A implementation for a disjoint-set data structure."""
     _disjoint_set = list()
 
     def __init__(self, init_arr):
@@ -36,8 +37,8 @@ class Set:
         return self._disjoint_set
 
 
-# Implementation of kruskal's algorithm to find a minimum spanning tree
 def kruskal(graph_map):
+    """Kruskal's algorithm to find a MST'"""
     tree = set()
     vertices = graph_map.get_vertices()
     edges = graph_map.get_edges()

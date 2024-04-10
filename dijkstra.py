@@ -1,8 +1,8 @@
 from graph import Vertex, Edge, Graph
 
 
-# An implementation of dijkstra's algorithm
 def dijkstra(graph_map, start, end):
+    """Implementation of Dijsktra's algorithm'"""
     # collection of unvisited nodes
     unvisited = set()
     # dictionary of distances for each node. start is initialised to 0
@@ -53,6 +53,7 @@ def dijkstra(graph_map, start, end):
         path[current] = distance[current]
 
     # nicely prints out the path back
+    print("Shortest distance from " + str(start) + " to " + str(end) + " is " + str(distance[end]))
     while path != {}:
         item = path.popitem()
         print(str(item[0]) + " -  Current distance from start: " + str(item[1]))
