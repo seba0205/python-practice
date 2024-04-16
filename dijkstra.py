@@ -1,8 +1,6 @@
-from graph import Vertex, Edge, Graph
-
 
 def dijkstra(graph_map, start, end):
-    """Implementation of Dijsktra's algorithm'"""
+    """Implementation of Dijkstra's algorithm"""
     # collection of unvisited nodes
     unvisited = set()
     # dictionary of distances for each node. start is initialised to 0

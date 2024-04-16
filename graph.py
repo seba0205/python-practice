@@ -26,11 +26,14 @@ class Edge:
     def __init__(self, from_node, to_node, weight=0, flow=False):
         self.from_node = from_node
         self.to_node = to_node
-        self.weight = weight
-        self.capacity = weight if flow else 0
+        self.weight = weight   # Capacity for a flow network
+        self.flow = 0 if flow else None
 
     def compare(self, other):
         return self.weight < other.weight
+
+    def get_flow(self):
+        return self.flow
 
     def get_weight(self):
         return self.weight
@@ -59,11 +62,11 @@ class Graph:
         if val not in self.vertices:
             self.vertices.append(val)
 
-    def add_edge(self, from_val, to_val, weight):
+    def add_edge(self, from_val, to_val, weight,flow):
         from_node = next(n for n in self.vertices if n.val == from_val)
         to_node = next(n for n in self.vertices if n.val == to_val)
 
-        edge = Edge(from_node, to_node, weight)
+        edge = Edge(from_node, to_node, weight,flow)
         self.edges.append(edge)
         from_node.neighbours.append(edge)
 
@@ -86,7 +89,7 @@ class Graph:
             print(str(e.from_node.val) + " -> " + str(e.to_node.val) + " | weight = " + str(e.weight))
 
 
-def make_graph_from_matrix(matrix):
+def make_graph_from_matrix(matrix,flow=False):
     """Given a matrix, creates a graph object"""
     graph = Graph(True)
     for i in range(len(matrix)):
@@ -94,11 +97,11 @@ def make_graph_from_matrix(matrix):
     for row in range(len(matrix)):
         for col in range(len(matrix[row])):
             if matrix[row][col] != 0:
-                graph.add_edge(row + 1, col + 1, matrix[row][col])
+                graph.add_edge(row + 1, col + 1, matrix[row][col],flow)
     return graph
 
 
-def make_random_graph(vertex_num, directed=False):
+def make_random_graph(vertex_num, directed=False, flow=False):
     """Generates a random graph with a given number of vertices"""
     matrix = np.zeros((vertex_num, vertex_num))
     for i in range(vertex_num):
@@ -108,16 +111,5 @@ def make_random_graph(vertex_num, directed=False):
                 matrix[j][i] = matrix[i][j]
             else:
                 matrix[i][j] = random.randint(0, 9)
-    return make_graph_from_matrix(matrix)
+    return make_graph_from_matrix(matrix,flow)
 
-
-graph = Graph(False)
-graph.add_vertex(Vertex(1))
-graph.add_vertex(Vertex(2))
-graph.add_vertex(Vertex(3))
-graph.add_vertex(Vertex(4))
-graph.add_vertex(Vertex(5))
-graph.add_edge(1, 4, 2)
-graph.add_edge(2, 3, 1)
-graph.add_edge(3, 1, 4)
-graph.add_edge(4, 5, 2)

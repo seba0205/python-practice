@@ -1,5 +1,6 @@
 from kruskal import kruskal
 from dijkstra import dijkstra
+from prims import prims
 from graph import make_random_graph
 
 '''
@@ -8,7 +9,9 @@ Takes in the total number of vertices and whether or not the graph is directed
 '''
 graph_dijkstra_test = make_random_graph(8, False)
 
-graph_dijkstra_test.print()
 
-dijkstra(graph_dijkstra_test, graph_dijkstra_test.get_vertex(0), graph_dijkstra_test.get_vertex(3))
+prims(graph_dijkstra_test)
+print("compare")
+kruskal(graph_dijkstra_test)
+
 
