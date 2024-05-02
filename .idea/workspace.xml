@@ -4,13 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8a965eed-ffef-4266-bf74-565cdbcd5361" name="Changes" comment="Tidied up comments and added random graph gen">
-      <change afterPath="$PROJECT_DIR$/prims.py" afterDir="false" />
+    <list default="true" id="8a965eed-ffef-4266-bf74-565cdbcd5361" name="Changes" comment="Added prims">
+      <change afterPath="$PROJECT_DIR$/sorting.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dijkstra.py" beforeDir="false" afterPath="$PROJECT_DIR$/dijkstra.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/graph.py" beforeDir="false" afterPath="$PROJECT_DIR$/graph.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kruskal.py" beforeDir="false" afterPath="$PROJECT_DIR$/kruskal.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,6 +58,7 @@
     "Python.kruskal.executor": "Run",
     "Python.prims.executor": "Run",
     "Python.pythonalgos.executor": "Run",
+    "Python.sorting.executor": "Run",
     "Python.tests.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -98,7 +96,8 @@
       <workItem from="1712716285412" duration="200000" />
       <workItem from="1712723966860" duration="734000" />
       <workItem from="1712810430034" duration="2339000" />
-      <workItem from="1713244015761" duration="1823000" />
+      <workItem from="1713244015761" duration="1965000" />
+      <workItem from="1714617504507" duration="1454000" />
     </task>
     <task id="LOCAL-00001" summary="added graph implementation">
       <option name="closed" value="true" />
@@ -156,7 +155,15 @@
       <option name="project" value="LOCAL" />
       <updated>1712710500622</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Added prims">
+      <option name="closed" value="true" />
+      <created>1713245979347</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1713245979347</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -170,14 +177,16 @@
     <MESSAGE value="Added method to make graph from matrix" />
     <MESSAGE value="Added kruskal MST and tests for dijkstra and kruskal" />
     <MESSAGE value="Tidied up comments and added random graph gen" />
-    <option name="LAST_COMMIT_MESSAGE" value="Tidied up comments and added random graph gen" />
+    <MESSAGE value="Added prims" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added prims" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/graph_py$prims.coverage" NAME="prims Coverage Results" MODIFIED="1713245799356" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/graph_py$prims.coverage" NAME="prims Coverage Results" MODIFIED="1713245848111" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/graph_py$dijkstra.coverage" NAME="dijkstra Coverage Results" MODIFIED="1712358573108" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/graph_py$graph.coverage" NAME="graph Coverage Results" MODIFIED="1712724301941" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/graph_py$kruskal.coverage" NAME="kruskal Coverage Results" MODIFIED="1712708292362" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/graph_py$tests.coverage" NAME="tests Coverage Results" MODIFIED="1713245801178" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/graph_py$tests.coverage" NAME="tests Coverage Results" MODIFIED="1713245936013" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/pythonProject$pythonalgos.coverage" NAME="pythonalgos Coverage Results" MODIFIED="1712220262946" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/graph_py$sorting.coverage" NAME="sorting Coverage Results" MODIFIED="1714618863908" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

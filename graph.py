@@ -50,8 +50,6 @@ class Edge:
 
 class Graph:
     """A graph of vertices and edges"""
-
-    # TODO: add methods for creating a flow network
     def __init__(self, directed, flow=False):
         self.vertices = []
         self.edges = []
